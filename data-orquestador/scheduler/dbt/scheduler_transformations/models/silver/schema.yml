@@ -1,0 +1,23 @@
+version: 2
+
+models:
+    - name: int_taxi_trips_zones_joined
+      description: 'Tabla de union de zonas y viajes en capa intermedia'
+      columns:
+        - name: pickup_ts
+          tests: [not_null]
+        - name: dropoff_ts
+          tests: [not_null]
+        - name: pickup_location
+          tests:
+            - not_null
+            - relationships:
+                to: ref('stg_zones')
+                field: location_id
+        - name: passengers_count
+          tests:
+            - not_null
+            - accepted_values:
+                values: [0,1,2,3,4,5,6,7,8,9,10]
+
+

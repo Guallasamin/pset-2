@@ -1,0 +1,8 @@
+sources:
+    - name: origen
+      schema: raw
+      tables:
+        - name: taxi_trips
+          description: "Esta tabla contiene los datos crudos del proceso EL de la pagina web de NYC Taxi"
+        - name: zones
+          description: "Esta tabla contiene las zonas de ubicacion geografica del servicio de taxis de NYC"

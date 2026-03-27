@@ -1,0 +1,15 @@
+# https://docs.getdbt.com/docs/core/connect-data-platform/profiles.yml
+
+scheduler_transformations:
+  outputs:
+    dev:
+      type: postgres
+      host: semana-1-4-warehouse-1
+      user: root
+      password: root
+      port: 5432
+      dbname: source
+      schema: analytics
+      threads: 4
+
+  target: dev
