@@ -15,12 +15,13 @@ services:
       timeout: 10s
       retries: 5
       start_period: 5s
-  ingesta-datos:
-    image: ingesta-datos
-    build: .
-    depends_on:
-      data-warehouse:
-        condition: service_healthy
+
+#  ingesta-datos:
+#    image: ingesta-datos
+#    build: .
+#    depends_on:
+#      data-warehouse:
+#        condition: service_healthy
   
   warehouse-ui:
     image: dpage/pgadmin4
@@ -29,5 +30,13 @@ services:
       - PGADMIN_DEFAULT_PASSWORD=root
     ports:
       - "9000:80"
+  
+  orquestador:
+    image: mageai/mageai
+    volumes:
+      - ./data-orquestador:/home/src
+    ports:
+      - "6789:6789"
+    command: /app/run_app.sh mage start orquestador
 volumes:
   warehouse-volume:
