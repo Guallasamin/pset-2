@@ -206,6 +206,5 @@ Toda la infraestructura está dockerizada para garantizar la reproducibilidad.
 
 1. **Clonar el repositorio:**
    ```bash
-   git clone https://github.com/Guallasamin/pset-2
-   cd pset2_ny_taxi
+   git clone https://github.com/Guallasamin/pset-2.git
     ```
