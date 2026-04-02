@@ -1,7 +1,7 @@
-# 🚖 NY Taxi Data Pipeline - Arquitectura ELT (2015-2025)
+# NY Taxi Data Pipeline - Arquitectura ELT (2015-2025)
 
-## 🎯 1. Objetivo del Proyecto
-El objetivo de este proyecto es construir una solución *end-to-end* para ingerir, almacenar, transformar y modelar datos históricos de viajes de NY Taxi correspondientes al período 2015-2025[cite: 5]. Se ha diseñado una arquitectura ELT reproducible y orquestada, desplegada íntegramente con Docker Compose[cite: 6]. La solución utiliza Mage AI como orquestador de tuberías de datos, PostgreSQL como *Data Warehouse* y pgAdmin como herramienta de inspección y validación[cite: 6].
+## 1. Objetivo del Proyecto
+El objetivo de este proyecto es construir una solución *end-to-end* para ingerir, almacenar, transformar y modelar datos históricos de viajes de NY Taxi correspondientes al período 2023-2026. Se ha diseñado una arquitectura ELT reproducible y orquestada, desplegada íntegramente con Docker Compose. La solución utiliza Mage AI como orquestador de tuberías de datos, PostgreSQL como *Data Warehouse* y pgAdmin como herramienta de inspección y validación.
 
 ## 🏗️ 2. Arquitectura
 ### Herramientas y Justificación
@@ -10,6 +10,9 @@ La arquitectura se diseñó bajo un enfoque **ELT (Extract, Load, Transform)** e
 
 * **Docker Compose:** Es la columna vertebral de la infraestructura.
   * *¿Por qué?* Garantiza la **reproducibilidad**. Permite levantar toda la red de servicios (bases de datos, orquestadores y UI) con un solo comando, asegurando que los puertos, redes internas y volúmenes de persistencia funcionen igual en cualquier máquina.
+
+![Diagrama del Modelo Estrella](/Users/jonathanguallasamin/Desktop/Maestria/Fundamentos Ciencia Datos/Taller2 Evidencias/Captura de pantalla 2026-04-02 a la(s) 4.21.46 p. m..png)
+
 * **Mage AI:** El motor de orquestación.
   * *¿Por qué?* A diferencia de *scripts* sueltos, Mage permite encadenar dependencias lógicas, programar ejecuciones (triggers), y manejar particiones de código (bloques). Además, gestiona de forma nativa variables de entorno y *secrets* (vía `io_config.yaml`), cumpliendo la regla estricta de no *hardcodear* credenciales.
 * **PostgreSQL:** El *Data Warehouse* central.
@@ -111,7 +114,7 @@ erDiagram
 
 
 ### 🚀 3. Pasos para levantar el entorno
-Toda la infraestructura está dockerizada para garantizar la reproducibilidad[cite: 10, 31].
+Toda la infraestructura está dockerizada para garantizar la reproducibilidad.
 
 1. **Clonar el repositorio:**
    ```bash
